@@ -1,0 +1,13 @@
+# 环境变量与密钥（绝对不要提交）
+.env
+
+# Python 虚拟环境
+venv/
+#/
+创建名为venv的虚拟环境/
+
+# 打包与缓存
+build/
+dist/
+__pycache__/
+*.pyc

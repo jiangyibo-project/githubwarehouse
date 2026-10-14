@@ -9,6 +9,7 @@
 运行方式：python build_notebook.py  （依赖 nbformat，Anaconda 自带）
 """
 import nbformat as nbf
+import os
 
 nb = nbf.v4.new_notebook()
 nb.metadata = {
@@ -267,7 +268,7 @@ print("均匀预测的损失:", cross_entropy(fake, t))""",
 
 # ------------------------------------------------------------------ 9 交叉熵曲线
 cells.append(nbf.v4.new_markdown_cell(
-    source="""把 $L = -\ln(y_{true})$ 画出来，直观看到"越接近 1 损失越小、接近 0 惩罚越狠"。"""
+    source=r"""把 $L = -\ln(y_{true})$ 画出来，直观看到"越接近 1 损失越小、接近 0 惩罚越狠"。"""
 ))
 
 cells.append(nbf.v4.new_code_cell(
@@ -766,7 +767,7 @@ def update(fr):
     return []
 
 anim = animation.FuncAnimation(fig, update, frames=frames, interval=100, repeat_delay=300)
-gif_path = "E:/item1：DeepLearningfromzero/train_animation.gif"
+gif_path = os.path.join(os.getcwd(), "train_animation.gif")  # 保存在 notebook 所在目录，任何电脑都能运行
 anim.save(gif_path, writer="pillow", dpi=100)
 plt.close(fig)
 print("动画已保存:", gif_path)
@@ -914,7 +915,7 @@ cells.append(nbf.v4.new_markdown_cell(
 ))
 
 nb.cells = cells
-out = r"E:\item1：DeepLearningfromzero\deeplearningfromzero.ipynb"
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "deeplearningfromzero.ipynb")
 with open(out, "w", encoding="utf-8") as f:
     nbf.write(nb, f)
 print("已写入:", out, "| 单元格数:", len(nb.cells))

@@ -1,3 +1,17 @@
+"""
+GalCode - 对话模拟系统
+=======================
+
+一个 GalGame 风格的桌面对话程序：
+- 界面使用 Python 自带的 Tkinter 实现，无需额外 GUI 框架；
+- 在线模式接入 DeepSeek 大模型（OpenAI 兼容接口），由 AI 扮演角色与玩家对话；
+- 离线模式使用内置的本地对话数据库（随机抽取话题、动作与回应），无需网络和密钥；
+- 包含角色切换、关系度系统、对话轮次记录、新话题 / 求助 / 分享等互动功能。
+
+API Key 从环境变量 DEEPSEEK_API_KEY 或程序同目录的 .env 文件中读取，
+禁止把密钥硬编码在本文件中。直接运行：python galcode.py
+"""
+
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox
 import requests
@@ -10,7 +24,13 @@ import random
 
 
 class GalCodeApp:
+    """GalCode 主应用类，负责界面构建、对话逻辑和 API 调用。"""
+
     def __init__(self, root):
+        """初始化应用：加载角色设定、API 配置、本地对话库并构建界面。
+
+        参数 root：Tkinter 根窗口（tk.Tk 实例）。
+        """
         self.root = root
         self.root.title("GalCode - 对话模拟系统")
         self.root.geometry("850x800")
@@ -1171,6 +1191,7 @@ class GalCodeApp:
 
 
 def main():
+    """程序入口：创建主窗口并进入 Tkinter 事件循环。"""
     # 创建主窗口
     root = tk.Tk()
 

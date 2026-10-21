@@ -26,6 +26,15 @@ Tkinter 桌面程序，可接入 DeepSeek 大模型在线对话，也可使用�
 - 技术栈：Python、Tkinter、requests
 - 运行方式：`pip install -r requirements.txt` 后 `python galcode.py`；不配置 API Key 时自动使用离线模式
 
+### 4. [ruins-guardian](./ruins-guardian) — 遗迹守卫（Unity 第三人称动作）
+
+程序化生成的第三人称动作游戏：玩家潜入遗迹庭院，收集 6 颗遗迹宝石、激活 3 块符文石碑开启北侧石门，在守卫、哨兵与精英的围堵下完成试炼。场景、材质、低多边形角色、动画、战斗手感、UI 与音频全部由编辑器脚本一键生成，零外部素材。
+
+- 技术栈：Unity 2022.3 LTS、C#、Built-in RP、UGUI、Post Processing Stack v2
+- 运行方式：用 Unity Hub 以 `ruins-guardian` 文件夹打开工程，打开 `Assets/Generated/RuinsDemo.unity` 后点击 Play
+- 操作：WASD 移动、Shift 冲刺、空格跳跃、Q 闪避、左键攻击、Tab 锁定、E 激活符文、鼠标直接转视角
+- 场景可随时用菜单 `Tools > Ruins Guardian > 生成演示场景` 一键重建
+
 ## 仓库目录结构
 
 ```
@@ -38,6 +47,10 @@ githubwarehouse/
 │   ├── deeplearningfromzero.ipynb
 │   ├── build_notebook.py
 │   └── train_animation.gif
+├── ruins-guardian/          # 遗迹守卫（Unity 第三人称动作）
+│   ├── Assets/              # 场景、C# 脚本、编辑器扩展
+│   ├── Packages/            # Unity 包依赖
+│   └── ProjectSettings/     # Unity 工程配置
 ├── galcode/                 # GalCode 对话模拟系统
 │   ├── galcode.py
 │   └── galcode.spec
